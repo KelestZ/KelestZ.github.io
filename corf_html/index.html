@@ -1,1 +1,273 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="UTF-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta name="description" content="Controllable Radiance Fields for Dynamic Face Synthesis. | 3DV 2022"/>
+		<meta name="keywords" content="3DV 2022">
+	    <title>Controllable Radiance Fields for Dynamic Face Synthesis</title>
+	    <!-- Bootstrap -->
+	    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+	    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="./3rd_party/academicons-1.9.1/css/academicons.min.css"/>
+		<link rel="stylesheet" href="./3rd_party/fontawesome-free-5.15.4-web/css/all.css"/>
+		<link href="./css/main.css" rel="stylesheet" type="text/css">
 
+		<!-- from EG3D: https://nvlabs.github.io/eg3d/ -->
+		<link rel="stylesheet" href="./css/box_swipe.css">
+   		<script src="box_swipe.js"></script>
+	</head>
+	
+	<div class="jumbotron jumbotron-fluid text-center mt-0">
+		<div class="container titlecontainer">
+			<div class="row">
+				<div class="col">
+					<h1><b> Controllable Radiance Fields for Dynamic Face Synthesis. </b></h1>
+	<!-- 				<h3>Making a 2D GAN 3D-Aware</h3> -->
+					<h4>3DV 2022</a></h4>
+					<hr>
+					<h5>
+						<a href="https://payeah.net/" target="_blank">Peiye Zhuang</a><sup>1,3,4</sup>, &nbsp;&nbsp; 
+						<a href="https://charliememory.github.io/" target="_blank">Liqian Ma</a><sup>2</sup>, &nbsp;&nbsp;
+						<a href="https://cs.stanford.edu/~sanmi/" target="_blank">Sanmi Koyejo</a><sup>1,3,4</sup>, &nbsp;&nbsp;
+						<a href="https://www.alexander-schwing.de/" target="_blank">Alexander G. Schwing</a><sup>1</sup>, &nbsp;&nbsp;
+					</h5>
+			
+					<p>
+						<br>
+						<sup>1</sup>University of Illinois, Urbana-Champaign &nbsp;&nbsp; <br>
+						<sup>2</sup>ZMO AI Inc.
+						<sup>3</sup>Stanford University
+						<sup>4</sup>Google Inc. 
+						<br>
+						<br>
+					</p>
+						
+					<div class="row justify-content-center">
+						<!-- <div class="column">
+							<p class="my-auto mx-1">
+								Use "btn btn-large btn-light" when the button is available
+								<a class="btn btn-large btn-secondary disabled" href="" role="button" target="_blank">
+									<span class="icon">
+										<i class="fas fa-file-pdf fa-fw"></i>
+									</span>
+									<span>Paper</span>
+								</a>
+							</p>
+						</div> -->
+						<div class="column">
+							<p class="my-auto mx-1">
+								<a class="btn btn-large btn-light" href="https://arxiv.org/abs/2210.05825" role="button" target="_blank">
+									<span class="icon"><i class="ai ai-arxiv fa-fw"></i></span>
+									<span>arXiv</span>
+								</a>
+							</p>
+						</div>
+						<!-- <div class="column">
+							<p class="my-auto mx-1">
+								<a class="btn btn-large btn-light" href="./files/poster.pdf" role="button" target="_blank">
+									<span class="icon"><i class="far fa-image fa-fw"></i></span>
+									<span>Poster</span>
+								</a>
+							</p>
+						</div> -->
+						<div class="column">
+							<p class="my-auto mx-1">
+								<a class="btn btn-large btn-light" href="https://github.com/KelestZ/corf" role="button" target="_blank">
+									<span class="icon"><i class="fab fa-github fa-fw"></i></span>
+									<span>Code</span>
+								</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+	    </div>
+	</div>
+
+    <!-- abstract -->
+	<div class="container">
+		<div class="section">
+			<div class="col-11 text-center">
+				<!-- <h3>Abstract</h3> -->
+				<hr style="margin-top:0px">
+				<div>
+					<b style="font-size:large" id="demo-warning"></b>
+					<br>
+				</div>
+
+				<blockquote style="font-size:20px">
+					<!-- <h4><b><em>"What is really needed to make an existing 2D GAN 3D-aware?"</em></b></h4> -->
+				</blockquote>
+
+                <!-- <br><br> -->
+				<p class="text-justify">
+Recent work on 3D-aware image synthesis has achieved compelling results using advances in neural rendering. However, 3D-aware synthesis of face dynamics hasn't received much attention. Here, we study how to explicitly control generative model synthesis of face dynamics exhibiting non-rigid motion (e.g., facial expression change), while simultaneously ensuring 3D-awareness. For this we propose a Controllable Radiance Field (CoRF): 1) Motion control is achieved by embedding motion features within the layered latent motion space of a style-based generator; 2) To ensure consistency of background, motion features and subject-specific attributes such as lighting, texture, shapes, albedo, and identity, a face parsing net, a head regressor and an identity encoder are incorporated. On head image/video data we show that CoRFs are 3D-aware while enabling editing of identity, viewing directions, and motion.
+</p>
+<ol style="display: inline-block; text-align: left;">
+	<!-- <li>A multiplane image style generator branch which produces a set of alpha maps conditioned on their depth;</li> -->
+	<!-- <li>A pose-conditioned discriminator.</li> -->
+</ol>
+<p class="text-justify">
+<!-- We refer to the generated output as a 'generative multiplane image' (GMPI) and emphasize that its renderings are not only high-quality but also guaranteed to be view-consistent, which makes GMPIs different from many prior works. Importantly, the number of alpha maps can be dynamically adjusted and can differ between training and inference, alleviating memory concerns and enabling fast training of GMPIs in less than half a day at a resolution of 1024<sup>2</sup>. Our findings are consistent across  three challenging and common high-resolution datasets, including FFHQ, AFHQv2 and MetFaces.  -->
+                </p>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+
+		<hr>
+		<h2 style="text-align:center;">Overview</h2><br>
+		<p>
+		Controllable free-view dynamic head synthesis. Each row presents an identity sampled from a prior distribution and two expressions guided by a reference image (bottom left), viewed from multiple directions (column 1-3 and 4-6).
+		</p>
+		<p class="text-justify">
+			<p  style="text-align: center;"> <img src="imgs/1_fig.jpg" height="340" width="900"> <br>
+			<!-- Click <a href="javascript:resetComparisons();"><u>here</u></a> to reset.<br>
+			Desktop browser is recommended for this to work properly. -->
+			</p>
+		</p>
+
+	</div>
+
+
+	<div class="container">
+
+		<hr>
+		<h2 style="text-align:center;">Pipeline</h2><br>
+		<p>
+		</p>
+
+		<p class="text-justify">
+			<p  style="text-align: center;"> <img src="imgs/2.png" height="340" width="900"> <br>
+			<!-- Click <a href="javascript:resetComparisons();"><u>here</u></a> to reset.<br>
+			Desktop browser is recommended for this to work properly. -->
+			</p>
+		</p>
+
+	</div>
+
+
+	<!-- FFHQ results -->
+	<section class="section" id="Video-Table">
+		<div class="container">
+
+			<hr>
+			<h2 style="text-align:center; margin-top: 0pt; margin-bottom: 0pt;">Videos</h2><br>
+
+			<p>
+			The following videos present the multi-view video generation of 3D content generated by CoRF.
+			</p>
+
+			<!-- <div class="columns is-centered"> -->
+				<!-- <div class="column is-two-thirds content"> -->
+			<!-- <h4 style="text-align:center">FFHQ 1024<sup>2</sup></h4> -->
+
+			<div class="container">
+				<div class="row">
+					<!-- <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6 pull-right"> -->
+						<div class="embed-responsive embed-responsive-16by9">
+							<video widthcontrols loop autoplay muted>
+								<source src="./sup_videos/video.mp4" type="video/mp4"><br>
+							</video>
+						</div>
+					<!-- </div> -->
+					<!-- <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6 pull-right">
+						<div class="embed-responsive embed-responsive-16by9">
+							<video widthcontrols loop autoplay muted>
+								<source src="./videos/ffhq/779.mp4" type="video/mp4"><br>
+							</video>
+						</div>
+					</div> -->
+				</div>
+				<!-- div class="row">
+					<div class="col-lg-6 col-md-6 col-xs-12 col-sm-6 pull-right">
+						<div class="embed-responsive embed-responsive-16by9">
+							<video widthcontrols loop autoplay muted>
+								<source src="./videos/ffhq/870.mp4" type="video/mp4"><br>
+							</video>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-xs-12 col-sm-6 pull-right">
+						<div class="embed-responsive embed-responsive-16by9">
+							<video widthcontrols loop autoplay muted>
+								<source src="./videos/ffhq/547.mp4" type="video/mp4"><br>
+							</video>
+						</div>
+					</div>
+				</div> -->
+				<!-- <div class="row">
+					<div class="col-lg-6 col-md-6 col-xs-12 col-sm-6 pull-right">
+						<div class="embed-responsive embed-responsive-16by9">
+							<video widthcontrols loop autoplay muted>
+								<source src="./videos/ffhq/917.mp4" type="video/mp4"><br>
+							</video>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-xs-12 col-sm-6 pull-right">
+						<div class="embed-responsive embed-responsive-16by9">
+							<video widthcontrols loop autoplay muted>
+								<source src="./videos/ffhq/223.mp4" type="video/mp4"><br>
+							</video>
+						</div>
+					</div> 
+				</div> -->
+			</div>
+
+		</div>
+	</section>
+
+
+
+	<div class="container">
+
+		<!-- bibtex -->
+		<div class="row">
+			<div class="col-sm">
+				<div class="text-left">
+
+					<hr>
+					<h3>Bibtex</h3>
+
+					<pre style="background-color: #f4f4f4;">
+						<code>
+			@inproceedings{zhuang2022controllable,
+				title = {Controllable Radiance Fields for Dynamic Face Synthesis},
+				author = {Zhuang, Peiye and 
+					  Ma, Liqian and 
+					  Koyejo, Oluwasanmi and 
+					  Schwing, Alexander},
+				booktitle = {Proc. 3DV},
+				year = {2022},
+			}
+						</code>
+					</pre>
+				</div>
+			</div>
+		</div>
+
+			<!-- acknowledgements -->
+			<div class="section">
+				<hr>
+				<h3>Acknowledgements</h3>
+
+				<p class="text-left">Some of the work was completed while P.Z. was at Google. This work is supported in part by NSF under Grants 1718221, 2008387, 2045586, 2106825, 1934986, MRI #1725729, and NIFA award 2020-67021-32799. S.K. was supported by Google.</p>
+			</div>
+
+		</div>
+	</div>
+
+	<script>
+		initComparisons();
+		linkVideos(0);
+		linkVideos(1);
+		linkVideos(2);
+	</script>
+
+	<footer class="text-center" style="margin-bottom:40px; font-size: medium;">
+	    <hr>
+	    Thanks to <a href="https://xiaoming-zhao.com/" target="_blank">Xiaoming Zhao</a> for the <a href="https://xiaoming-zhao.github.io/projects/gmpi/" target="_blank">website template</a>. 
+	</footer>
+</html>
